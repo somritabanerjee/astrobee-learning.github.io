@@ -6,7 +6,7 @@
         content="First demonstration of learning-accelerated trajectory optimization in space using machine learning on the ISS.">
   <meta name="keywords" content="Astrobee, ISS, Space Robotics, Machine Learning, Trajectory Optimization">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Learning-Accelerated Trajectory Optimization on the ISS</title>
+  <title>Deep Learning Warm Starts for Trajectory Optimization on the International Space Station</title>
 
   <link href="https://fonts.googleapis.com/css?family=Google+Sans|Noto+Sans|Castoro" rel="stylesheet">
 
@@ -27,15 +27,17 @@
 </head>
 <body>
 
-<nav class="navbar" role="navigation" aria-label="main navigation">
-  <div class="navbar-brand">
-    <a role="button" class="navbar-burger" aria-label="menu" aria-expanded="false">
-      <span aria-hidden="true"></span>
-      <span aria-hidden="true"></span>
-      <span aria-hidden="true"></span>
-    </a>
+<!-- ========================================================= -->
+<!-- CONFERENCE BANNER -->
+<!-- ========================================================= -->
+<section class="hero is-small is-light" style="background-color:#f0f0f0; padding: 1rem 0;">
+  <div class="container has-text-centered">
+    <p class="is-size-5">
+      🌍 <b>Accepted to the 2025 International Conference on Space Robotics (iSpaRo)</b><br>
+      Sendai, Japan — December 4, 2025
+    </p>
   </div>
-</nav>
+</section>
 
 <!-- ========================================================= -->
 <!-- HERO SECTION -->
@@ -45,50 +47,62 @@
     <div class="container is-max-desktop">
       <div class="columns is-centered">
         <div class="column has-text-centered">
-          <h1 class="title is-1 publication-title">Learning-Accelerated Trajectory Optimization on the ISS</h1>
-          <div class="is-size-5 publication-authors">
-            <span class="author-block">TBD</span>
-          </div>
+
+          <h1 class="title is-1 publication-title">
+            Deep Learning Warm Starts for Trajectory Optimization on the International Space Station
+          </h1>
 
           <div class="is-size-5 publication-authors">
-            <span class="author-block">TBD</span>
+            <span class="author-block"><b>Somrita Banerjee</b><sup>1</sup>, <b>Abhishek Cauligi</b><sup>2</sup>, and <b>Marco Pavone</b><sup>3</sup></span>
           </div>
 
-          <div class="column has-text-centered">
+          <div class="is-size-6 publication-authors">
+            <span class="author-block"><sup>1</sup>Apple Inc. (work completed during PhD at Stanford University)</span><br>
+            <span class="author-block"><sup>2</sup>Johns Hopkins University</span><br>
+            <span class="author-block"><sup>3</sup>Stanford University</span>
+          </div>
+
+          <div class="column has-text-centered" style="margin-top: 1em;">
             <div class="publication-links">
               <span class="link-block">
                 <a href="https://www.arxiv.org/abs/2505.05588"
                    class="external-link button is-normal is-rounded is-dark">
-                  <span class="icon">
-                      <i class="ai ai-arxiv"></i>
-                  </span>
+                  <span class="icon"><i class="ai ai-arxiv"></i></span>
                   <span>arXiv</span>
                 </a>
               </span>
               <span class="link-block">
                 <a href="https://github.com/StanfordASL/astrobee"
                    class="external-link button is-normal is-rounded is-dark">
-                  <span class="icon">
-                      <i class="fab fa-github"></i>
-                  </span>
+                  <span class="icon"><i class="fab fa-github"></i></span>
                   <span>Code</span>
                 </a>
               </span>
+              <!-- Twitter/X Link -->
               <span class="link-block">
-                <a href="https://youtu.be/9i-VANjEAak"
-                   class="external-link button is-normal is-rounded is-dark">
+                <a href="https://x.com/drmapavone/status/1955969453491151228?s=20"
+                  class="external-link button is-normal is-rounded is-dark">
                   <span class="icon">
-                      <i class="fab fa-youtube"></i>
+                      <i class="fab fa-twitter"></i>
                   </span>
-                  <span>Short Video</span>
+                  <span>Tweet</span>
                 </a>
               </span>
+              <!-- LinkedIn Link -->
+              <span class="link-block">
+                <a href="https://www.linkedin.com/posts/marco-pavone-stanford_first-demonstration-of-learning-accelerated-activity-7361735738582818816-g1ns?utm_source=li_share&utm_content=feedcontent&utm_medium=g_dt_web&utm_campaign=copy"
+                  class="external-link button is-normal is-rounded is-dark">
+                  <span class="icon">
+                      <i class="fab fa-linkedin"></i>
+                  </span>
+                  <span>LinkedIn</span>
+                </a>
+              </span>
+              <!-- YouTube Link -->
               <span class="link-block">
                 <a href="https://youtu.be/NVDMd88XFhs"
                    class="external-link button is-normal is-rounded is-dark">
-                  <span class="icon">
-                      <i class="fab fa-youtube"></i>
-                  </span>
+                  <span class="icon"><i class="fab fa-youtube"></i></span>
                   <span>Full Video</span>
                 </a>
               </span>
@@ -107,7 +121,6 @@
 <section class="hero teaser">
   <div class="container is-max-desktop">
     <div class="hero-body">
-      <!-- Placeholder video from original Nerfies -->
       <video id="teaser" autoplay muted loop playsinline height="100%">
         <source src="./static/videos/teaser.mp4" type="video/mp4">
       </video>
@@ -119,7 +132,7 @@
 </section>
 
 <!-- ========================================================= -->
-<!-- ABSTRACT / KEY INNOVATION -->
+<!-- OVERVIEW -->
 <!-- ========================================================= -->
 <section class="section">
   <div class="container is-max-desktop">
@@ -127,37 +140,38 @@
       <div class="column is-four-fifths">
         <h2 class="title is-3">Overview</h2>
         <div class="content has-text-justified">
-          <p>
-            <b>Key innovation:</b> This experiment was the first-ever use of machine learning–based control in space on the ISS.
-          </p>
-          <p>
-            Our team used a neural network to warm-start trajectory optimization for the <b>Astrobee free-flying robot</b> on board the International Space Station, cutting solver iterations by up to <b>60%</b> while maintaining safety constraints.
-          </p>
-          <p>
-            Please note that this experiment was different from Phase 1 in that it was a <b>software-only experiment</b> and did not utilize the hardware of gecko grippers.
-          </p>
+          <p>This experiment was the <b>first-ever use of machine learning–based control in space on the ISS</b>.</p>
+          <p>Our team used a neural network to warm-start trajectory optimization for the <b>Astrobee free-flying robot</b> on board the International Space Station, cutting solver iterations by up to <b>60%</b> while maintaining safety constraints.</p>
         </div>
+
+        <!-- Add flowchart image below -->
+        <figure style="margin-top: 2rem;">
+          <img src="./static/images/flowchart.png" alt="Flowchart of learning-accelerated trajectory optimization process">
+          <figcaption style="font-size: 0.9rem; color: #666; margin-top: 0.5rem;">
+            Flowchart illustrating the learning-accelerated trajectory optimization process.
+          </figcaption>
+        </figure>
+
       </div>
     </div>
   </div>
 </section>
 
 <!-- ========================================================= -->
-<!-- VIDEOS -->
+<!-- VIDEO -->
 <!-- ========================================================= -->
-<section class="section">
-  <div class="container is-max-desktop">
+<section class="section hero-section-with-bg">
+  <div class="hero-bg"></div>
+
+  <div class="container is-max-desktop video-block">
     <div class="columns is-centered has-text-centered">
       <div class="column is-four-fifths">
-        <h2 class="title is-3">Videos</h2>
-        <div class="publication-video">
-          <iframe src="https://www.youtube.com/embed/9i-VANjEAak"
-                  frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
-        </div>
-        <br/>
+        <h2 class="title is-3">Video</h2>
         <div class="publication-video">
           <iframe src="https://www.youtube.com/embed/NVDMd88XFhs"
-                  frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
+                  frameborder="0"
+                  allow="autoplay; encrypted-media"
+                  allowfullscreen></iframe>
         </div>
       </div>
     </div>
@@ -165,19 +179,16 @@
 </section>
 
 <!-- ========================================================= -->
-<!-- PUBLICATION INFO -->
+<!-- ABSTRACT -->
 <!-- ========================================================= -->
 <section class="section">
-  <div class="container is-max-desktop">
+  <div class="container is-max-desktop abstract-block">
     <div class="columns is-centered has-text-centered">
       <div class="column is-four-fifths">
-        <h2 class="title is-3">Publication</h2>
+        <h2 class="title is-3">Abstract</h2>
         <div class="content has-text-justified">
           <p>
-            This work has been accepted to and will be presented at the <b>2025 International Conference on Space Robotics (iSpaRo)</b> in <b>Sendai, Japan</b> on <b>December 4, 2025</b>.
-          </p>
-          <p>
-            It was previously presented at the <b>Workshop on Space Robotics</b> at the <b>2025 Robotics: Science and Systems (RSS)</b> conference on <b>June 21, 2025</b>.
+            Trajectory optimization is a cornerstone of modern robot autonomy, enabling systems to compute trajectories and controls in real-time while respecting safety and physical constraints. However, it has seen limited usage in spaceflight applications due to its heavy computational demands that exceed the capability of most flight computers. In this work, we provide results on the first in-space demonstration of using machine learning-based warm starts for accelerating trajectory optimization for the Astrobee free-flying robot onboard the International Space Station (ISS). We formulate a data-driven optimal control approach that trains a neural network to learn the structure of the trajectory generation problem being solved using sequential convex programming (SCP). Onboard, this trained neural network predicts solutions for the trajectory generation problem and relies on using the SCP solver to enforce safety constraints for the system. Our trained network reduces the number of solver iterations required for convergence in cases including rotational dynamics by 60% and in cases with obstacles drawn from the training distribution of the warm start model by 50%. This work represents a significant milestone in the use of learning-based control for spaceflight applications and a stepping stone for future advances in the use of machine learning for autonomous guidance, navigation, & control.
           </p>
         </div>
       </div>
@@ -185,35 +196,20 @@
   </div>
 </section>
 
-<!-- ========================================================= -->
-<!-- SOCIAL LINKS -->
-<!-- ========================================================= -->
-<section class="section">
-  <div class="container is-max-desktop">
-    <h2 class="title is-3 has-text-centered">Links</h2>
-    <div class="content has-text-centered">
-      <p>
-        <a href="https://www.arxiv.org/abs/2505.05588">Paper</a> |
-        <a href="https://github.com/StanfordASL/astrobee">Code</a> |
-        <a href="https://youtu.be/9i-VANjEAak">Short video</a> |
-        <a href="https://youtu.be/NVDMd88XFhs">Full video</a>
-      </p>
-      <p>
-        Social media: <a href="https://x.com/">X</a> | <a href="https://linkedin.com/">LinkedIn</a>
-      </p>
-    </div>
+
+<!-- BibTeX. -->
+<section class="section" id="BibTeX">
+  <div class="container is-max-widescreen content">
+    <h2 class="title">BibTeX</h2>
+    <pre><code>@article{banerjee2025deeplearning,
+    title   = {Deep Learning Warm Starts for Trajectory Optimization on the International Space Station},
+    author  = {Banerjee, Somrita and Cauligi, Abhishek and Pavone, Marco},
+    year    = 2025,
+    journal = {arXiv preprint arXiv:2505.05588}
+}</code></pre>
   </div>
 </section>
 
-<!-- ========================================================= -->
-<!-- TBD SECTIONS -->
-<!-- ========================================================= -->
-<section class="section">
-  <div class="container is-max-desktop">
-    <h2 class="title is-3">Additional Sections</h2>
-    <p>TBD</p>
-  </div>
-</section>
 
 <!-- ========================================================= -->
 <!-- FOOTER -->
@@ -234,9 +230,6 @@
           <p>
             This website is based on the <a href="https://github.com/nerfies/nerfies.github.io">Nerfies template</a>
             and is licensed under a <a rel="license" href="http://creativecommons.org/licenses/by-sa/4.0/">Creative Commons Attribution-ShareAlike 4.0 International License</a>.
-          </p>
-          <p>
-            Please remember to remove analytics or tracking code if you fork this site.
           </p>
         </div>
       </div>
